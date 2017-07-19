@@ -1,5 +1,6 @@
 var aNumbers = [];
 var iCurrentNumber = '';
+var iResult=0;
 function calculate(iNumber){
 	iCurrentNumber = iCurrentNumber + iNumber; 
 	document.getElementById("resultInput").value = iCurrentNumber;
@@ -21,15 +22,24 @@ function sign(iSign){
 		aNumbers.push(iCurrentNumber);
 		aNumbers.push(iSign); 
 		break;
+
 		case '*': 
 		aNumbers.push(iSign);
 		break;
+		
 		case '/': 
 		aNumbers.push(iSign);
 		break;
+		
 		case '=': 
+		aNumbers.push(iCurrentNumber);
 		for (var i = 0; i < aNumbers.length; i++) {
+			if(aNumbers[i] == '+') {
+				iResult = parseInt(aNumbers[i-1]) + parseInt(aNumbers[i+1]);
+			}
 			console.log(aNumbers[i]);
+			console.log(iResult);
+			document.getElementById('resultInput').value = iResult;
 		}
 		break;
 	}
