@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<title>Calculator</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+</head>
+
+<body>
+
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">Calculation</span>
+		<input id="calculationInput" type="text" class ="form-control" aria-describedby="basic-addon1">
+	</div>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon2">Result</span>
+		<input id="resultInput" type="text" class ="form-control" aria-describedby="basic-addon2">
+	</div>
+
+
+	<div class="btn-group btn-group-lg" role="group" aria-label="...">
+		<button type="button" class="btn btn-default" onclick="calculate(1)">1</button>
+		<button type="button" class="btn btn-default" onclick="calculate(2)">2</button>
+		<button type="button" class="btn btn-default" onclick="calculate(3)">3</button>
+	</div>
+	<br />
+	<div class="btn-group btn-group-lg" role="group" aria-label="...">
+		<button type="button" class="btn btn-default" onclick="calculate(4)">4</button>
+		<button type="button" class="btn btn-default" onclick="calculate(5)">5</button>
+		<button type="button" class="btn btn-default" onclick="calculate(6)">6</button>
+	</div>
+	<br />
+	<div class="btn-group btn-group-lg" role="group" aria-label="...">
+		<button type="button" class="btn btn-default" onclick="calculate(7)">7</button>
+		<button type="button" class="btn btn-default" onclick="calculate(8)">8</button>
+		<button type="button" class="btn btn-default" onclick="calculate(9)">9</button>
+	</div>
+	<br />
+	<button type="button" class="btn btn-default" onclick="sign('-')">-</button>
+	<button type="button" class="btn btn-default" onclick="sign('+')">+</button>
+	<button type="button" class="btn btn-default" onclick="sign('*')">*</button>
+	<button type="button" class="btn btn-default" onclick="sign('/')">/</button>
+	<button type="button" class="btn btn-default" onclick="sign('=')">=</button>
+	<br />
+	<button type="button" class="btn btn-default" onclick="clearResult()">Clear</button>
+
+
+	<script src="scripts/testing.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "node_package",
+  "version": "1.0.0",
+  "description": "webApp\r Modified by Andrei",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afilipescu/webApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afilipescu/webApp/issues"
+  },
+  "homepage": "https://github.com/afilipescu/webApp#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
