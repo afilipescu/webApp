@@ -2,7 +2,12 @@ var aNumbers = [];
 var iCurrentNumber = '';
 var iResult=0;
 function calculate(iNumber){
-	iCurrentNumber = iCurrentNumber + iNumber; 
+	//if(sign(iSign) == "+") {
+		iCurrentNumber = iCurrentNumber + iNumber; 
+	//}
+	//else if(iSign == "-") {
+	//	iCurrentNumber = iCurrentNumber - iNumber; 
+	//}
 	document.getElementById("resultInput").value = iCurrentNumber;
 	console.log(iCurrentNumber);
 }
@@ -23,7 +28,12 @@ function sign(iSign){
 		parseInt(iCurrentNumber);
 		aNumbers.push(iCurrentNumber);
 		aNumbers.push(iSign); 
-		if(iResult !=0) {iResult = iResult - parseInt(iCurrentNumber);}
+		if(aNumbers.length == 2) {
+			iResult = iResult + parseInt(iCurrentNumber);
+		}
+		else {
+			iResult = iResult - parseInt(iCurrentNumber);
+		}
 		
 		break;
 
