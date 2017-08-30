@@ -1,79 +1,109 @@
 var aNumbers = [];
-var iCurrentNumber = '';
+var sCurrentNumber = '';
 var iResult=0;
-function calculate(iNumber){
-	//if(sign(iSign) == "+") {
-		iCurrentNumber = iCurrentNumber + iNumber; 
-	//}
-	//else if(iSign == "-") {
-	//	iCurrentNumber = iCurrentNumber - iNumber; 
-	//}
-	document.getElementById("resultInput").value = iCurrentNumber;
-	console.log(iCurrentNumber);
+var iCurrentNumber = 0;
+var iPreviousNumber = 0;
+var previousSign;
+var hiddenResult = 0;
+
+function getNumber(iCurrentNumber) {
+	sCurrentNumber = sCurrentNumber + iCurrentNumber; 
+	document.getElementById("resultInput").value = sCurrentNumber;
+
+	if(aNumbers.length > 1) {
+		iPreviousNumber = aNumbers[aNumbers.length-2];
+		previousSign = aNumbers[aNumbers.length-1];
+	}
 }
 
 function sign(iSign){
-	
-	//aNumbers.push(iCurrentNumber);
 
 	switch(iSign) {
 		case '+': 
-		parseInt(iCurrentNumber);
+
+		iCurrentNumber= parseInt(sCurrentNumber);
 		aNumbers.push(iCurrentNumber);
+		if(previousSign == "-") {
+			if(aNumbers.length == 3) {
+				iResult = iPreviousNumber - iCurrentNumber;
+			}else if(aNumbers.length > 3) {
+				iResult = iResult - iCurrentNumber;
+			}
+		}else if(previousSign == "+") {
+			if(aNumbers.length == 3) {
+				iResult = iPreviousNumber + iCurrentNumber;
+			}else if(aNumbers.length > 3) {
+				iResult = iResult + iCurrentNumber;
+			}
+		}
 		aNumbers.push(iSign);
-		iResult = iResult + parseInt(iCurrentNumber);
+
 		break;
 
 		case '-': 
-		parseInt(iCurrentNumber);
+
+		iCurrentNumber = parseInt(sCurrentNumber);
 		aNumbers.push(iCurrentNumber);
+
+		if(previousSign == "+") {
+			if(aNumbers.length == 3) {
+				iResult = iPreviousNumber + iCurrentNumber;
+			}else if(aNumbers.length > 3) {
+				iResult = iResult + iCurrentNumber;
+			}
+		}else if (previousSign == "-") {
+			if(aNumbers.length == 3) {
+				iResult = iPreviousNumber - iCurrentNumber;
+			}else if(aNumbers.length > 3) {
+				iResult = iResult - iCurrentNumber;
+			}
+		}
 		aNumbers.push(iSign); 
-		if(aNumbers.length == 2) {
-			iResult = iResult + parseInt(iCurrentNumber);
-		}
-		else {
-			iResult = iResult - parseInt(iCurrentNumber);
-		}
-		
+
 		break;
 
 		case '*': 
 		aNumbers.push(iSign);
 		break;
-		
+
 		case '/': 
 		aNumbers.push(iSign);
 		break;
-		
+
 		case '=': 
-		// iResult=0;
-		// aNumbers.push(iCurrentNumber);
-		// for (var i = 0; i < aNumbers.length; i++) {
-		// 	if(aNumbers[i] == '+') {
-		// 		iResult = iResult + parseInt(aNumbers[i-1]) + parseInt(aNumbers[i+1]);
-		// 	}
-		// 	console.log(aNumbers[i]);
-		// 	console.log(iResult);
+		iCurrentNumber = parseInt(sCurrentNumber);
 		aNumbers.push(iCurrentNumber);
-		iResult = iResult + parseInt(iCurrentNumber);
+
+		if(aNumbers[aNumbers.length-2] == "+") {
+			iResult = iResult + iCurrentNumber;
+		}else if(aNumbers[aNumbers.length-2] == "-") {
+			if(aNumbers.length == 3) {
+				iResult = iPreviousNumber - iCurrentNumber;	
+			}else {
+				iResult = iResult - iCurrentNumber;		
+			}
+			
+		}
+		
 		document.getElementById('calculationInput').value = aNumbers.join(" ");
 		document.getElementById('resultInput').value = iResult;
-		// }
 		break;
 	}
 	document.getElementById('resultInput').value = iResult;
 	document.getElementById('calculationInput').value = aNumbers.join(" ");
-	iCurrentNumber = '';
-	console.log("iCurrentNumber=" + iCurrentNumber);
-	console.log("aNumbers=" + aNumbers);
+	sCurrentNumber = '';
+	// console.log("sCurrentNumber=" + sCurrentNumber);
+	// console.log("aNumbers=" + aNumbers);
 }
 
 function clearResult(){
 	aNumbers = [];
+	sCurrentNumber = '';
+	iResult=0;
 	iCurrentNumber = 0;
-	iResult =0
 	document.getElementById('calculationInput').value = 0;
 	document.getElementById('resultInput').value = 0;
-	console.log("iCurrentNumber=" + iCurrentNumber);
+	console.log("sCurrentNumber=" + sCurrentNumber);
 	console.log("aNumbers=" + aNumbers);
 }
+
